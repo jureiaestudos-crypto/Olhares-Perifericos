@@ -16,10 +16,11 @@ const DB = {
     agentes_culturais: [
         // LOGIN AGENTE: email: mano@rap.com | senha: 123
         { id: 1, nome: "Mano Brownie", email: "mano@rap.com", senha: "123", atividade: "Música", cd_municipio: 1, nome_catalogo: "Rimas do Porto" }
+        { id: 2, nome: "Augusto Pakko", email: "augusto@rap.com", senha: "123", atividade: "Música", cd_municipio: 1, nome_catalogo: "Rimas da ZN" }
     ],
     obras: [
         { id: 1, titulo: "Resistência Sonora", genero: "Audiovisual", sinopse: "Clipe oficial gravado na zona noroeste.", img: "musica.jpg", cd_agente: 1 },
-        { id: 2, titulo: "Grafite no Muro", genero: "Artes Visuais", sinopse: "Intervenção urbana.", img: "grafite.jpg", cd_agente: 1 }
+        { id: 2, titulo: "Grafite no Muro", genero: "Artes Visuais", sinopse: "Intervenção urbana.", img: "grafite.jpg", cd_agente: 2 }
     ],
     solicitacoes: [
         { id: 1, descricao: "Solicito inclusão na exposição Vozes da Maré", status: "Pendente", agente: "Mano Brownie" }

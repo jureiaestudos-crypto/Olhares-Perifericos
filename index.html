@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Olhares Periféricos - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Olhares <span>Periféricos</span></div>
+        
+        <div class="search-bar">
+            <input type="text" id="campo-busca" placeholder="Buscar artista, obra ou município..." onkeypress="verificarEnter(event)">
+            <button onclick="realizarBusca()">🔍</button>
+        </div>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="login.html" class="btn-destaque">Sou Agente / Admin</a>
+        </nav>
+    </header>
+
+   <main>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h1 id="titulo-pagina">VITRINE CULTURAL</h1>
+            <p id="subtitulo-pagina" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px auto;">
+                Navegue pelos artistas e catálogos expostos em nosso território. O grupo de pesquisa OLHARES PERIFÉRICOS valoriza e divulga as produções culturais periféricas, conectando talentos locais a oportunidades de visibilidade e crescimento.
+            </p>
+            
+            <a href="cadastro.html" class="btn-acao" style="font-size: 1.1rem; padding: 15px 40px; box-shadow: 0 0 15px rgba(250, 0, 50, 0.4);">
+                MONTAR MINHA VITRINE
+            </a>
+        </div>
+
+        <section id="secao-busca" style="display: none; margin-top: 30px;">
+            <h2>Resultados da Pesquisa</h2>
+            <button class="btn-acao" style="width: auto; margin-bottom: 20px; background: transparent; border: 1px solid white;" onclick="limparBusca()">Voltar para Navegação</button>
+            <div class="grid-container" id="grid-resultados"></div>
+        </section>
+
+        <section id="secao-navegacao">
+            <h2>MUNICÍPIOS & EXPOSIÇÕES</h2>
+            <div class="tabs" id="lista-municipios">
+                <button class="tab-btn active" onclick="filtrarExposicoes('todos', this)">TODOS</button>
+                </div>
+
+            <div class="grid-container" id="grid-exposicoes">
+                </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>carregarMunicipios();</script>
+</body>
+</html>

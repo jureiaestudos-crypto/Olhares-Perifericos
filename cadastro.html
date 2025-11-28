@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Agente - Olhares Periféricos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Olhares <span>Periféricos</span></div>
+        <nav><a href="login.html">Voltar ao Login</a></nav>
+    </header>
+
+    <div class="form-container">
+        <h2>Cadastro de Agente Cultural</h2>
+        <p style="margin-bottom: 20px;">Preencha seus dados para criar seu Catálogo.</p>
+        
+        <form onsubmit="realizarCadastro(event)">
+            <label>Nome Artístico / Coletivo</label>
+            <input type="text" required>
+
+            <label>Atividade Principal (Ex: Música, Dança)</label>
+            <input type="text" required>
+
+            <label>Município de Atuação</label>
+            <select>
+                <option value="1">Santos</option>
+                <option value="2">São Vicente</option>
+                <option value="3">Cubatão</option>
+            </select>
+
+            <label>E-mail (Login)</label>
+            <input type="email" required>
+
+            <label>Senha</label>
+            <input type="password" required>
+            
+            <button type="submit">Finalizar Cadastro</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+/* --- IDENTIDADE VISUAL: OLHARES PERIFÉRICOS --- */
+:root {
+    --primary: #FA0032;       /* Vermelho da Identidade */
+    --bg-body: #000000;       /* Preto Absoluto */
+    --bg-card: #111111;       /* Cinza quase preto */
+    --text-main: #ffffff;
+    --text-muted: #b3b3b3;
+    --border: #333333;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
+body { background-color: var(--bg-body); color: var(--text-main); overflow-x: hidden; }
+
+/* TIPOGRAFIA */
+h1, h2, h3, .logo {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    font-weight: 400;
+}
+
+/* HEADER */
+header {
+    background: #000;
+    padding: 1.5rem 5%;
+    border-bottom: 2px solid var(--primary);
+    display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 100;
+}
+
+.logo { font-size: 1.8rem; text-decoration: none; color: white; }
+.logo span { color: var(--primary); }
+
+.header-actions { display: flex; align-items: center; gap: 20px; }
+
+/* MENU HAMBÚRGUER (Estilo Minimalista) */
+.hamburger-icon {
+    font-size: 1.8rem; cursor: pointer; color: white; transition: 0.3s;
+}
+.hamburger-icon:hover { color: var(--primary); transform: scale(1.1); }
+
+.sidebar {
+    height: 100%; width: 280px; position: fixed; z-index: 200;
+    top: 0; right: -300px; background-color: #0a0a0a;
+    transition: 0.4s; padding-top: 60px;
+    border-left: 1px solid var(--primary);
+}
+.sidebar.open { right: 0; }
+.sidebar a {
+    padding: 20px; text-decoration: none; font-size: 1.2rem; color: #fff;
+    display: block; border-bottom: 1px solid #222; font-family: 'Anton', sans-serif;
+}
+.sidebar a:hover { color: var(--primary); background: #111; padding-left: 30px; }
+.close-btn { position: absolute; top: 10px; right: 20px; font-size: 2.5rem; color: var(--primary); background:none; border:none; cursor:pointer; }
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 150; display: none; }
+.overlay.active { display: block; }
+
+/* BOTÕES GERAIS */
+button, .btn-acao {
+    background-color: var(--primary);
+    color: white; border: none; padding: 12px 30px;
+    border-radius: 50px; font-weight: bold; text-transform: uppercase;
+    font-size: 0.85rem; cursor: pointer; transition: 0.3s;
+    text-decoration: none; display: inline-block; text-align: center;
+}
+button:hover, .btn-acao:hover { background: white; color: black; transform: translateY(-2px); }
+
+/* --- CARDS (Obras) - EFEITO INTERATIVO SOLICITADO --- */
+.grid-container {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-top: 30px;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: 8px; overflow: hidden; position: relative;
+    height: 350px; /* Altura fixa */
+    border: 1px solid #222;
+    transition: 0.3s;
+}
+
+.card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: 0.5s; filter: grayscale(50%);
+}
+
+/* Efeito Hover: Imagem sobe/encolhe, Texto aparece */
+.card:hover img {
+    height: 40%; /* Imagem fica menor */
+    filter: grayscale(0%);
+}
+
+.card-content {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 60%;
+    background: #111; padding: 20px;
+    transform: translateY(60%); /* Escondido lá embaixo */
+    transition: 0.4s ease-in-out;
+    display: flex; flex-direction: column;
+}
+
+.card:hover .card-content {
+    transform: translateY(0); /* Sobe para aparecer */
+}
+
+.card-content h3 { font-size: 1.4rem; margin-bottom: 5px; color: var(--primary); }
+.card-content p { color: #ccc; font-size: 0.9rem; margin-bottom: 10px; opacity: 0; transition: 0.5s; }
+.card:hover .card-content p { opacity: 1; }
+
+.tag-genero {
+    position: absolute; top: 15px; right: 15px;
+    background: var(--primary); color: white; padding: 4px 10px;
+    font-weight: bold; font-size: 0.7rem; border-radius: 4px; z-index: 10;
+}
+
+/* --- PAINEL DO AGENTE (Layout) --- */
+.painel-header {
+    background: #111; padding: 30px; margin-bottom: 30px;
+    border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+}
+
+.painel-layout {
+    display: flex; gap: 40px; padding: 0 5%;
+}
+
+.coluna-form { flex: 1; background: #111; padding: 30px; border: 1px solid #333; height: fit-content; }
+.coluna-lista { flex: 2; }
+
+/* Inputs */
+label { display: block; margin-bottom: 8px; color: var(--primary); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+input, textarea, select {
+    width: 100%; padding: 12px; margin-bottom: 20px;
+    background: #000; border: 1px solid #333; color: white;
+    border-radius: 4px; font-size: 1rem;
+}
+input:focus, textarea:focus { border-color: var(--primary); outline: none; }
+
+/* Botão Remover */
+.btn-remover {
+    background: transparent; border: 1px solid #555; color: #ff4444;
+    padding: 5px 10px; font-size: 0.7rem; width: 100%; margin-top: auto;
+}
+.btn-remover:hover { background: #ff4444; color: white; border-color: #ff4444; }
+
+
+
+
+
+/* --- RESPONSIVIDADE (Específica para < 578px) --- */
+@media (max-width: 578px) {
+    /* 1. Cabeçalho vira uma coluna vertical */
+    header { 
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 1.5rem 1rem; 
+        text-align: center;
+    }
+    
+    /* 2. Barra de Pesquisa ocupa 100% e fica fácil de tocar */
+    .search-bar { 
+        width: 100%; 
+        margin: 10px 0; 
+        padding: 8px 15px; /* Mais espaço interno */
+        order: 2; /* Força ficar abaixo do logo */
+    }
+    
+    /* 3. Menu de navegação ajustado */
+    nav { 
+        width: 100%; 
+        justify-content: center; 
+        flex-wrap: wrap; 
+        gap: 15px; 
+        order: 3;
+    }
+
+    nav a {
+        display: inline-block;
+        padding: 5px; /* Aumenta área de toque */
+    }
+    
+    /* 4. Textos grandes diminuem para não quebrar a tela */
+    h1 { font-size: 2.2rem; margin-bottom: 20px; }
+    h2 { font-size: 1.5rem; }
+    
+    /* 5. Grids viram lista única (1 coluna) */
+    .grid-container { 
+        grid-template-columns: 1fr; 
+        gap: 25px;
+    }
+    
+    /* 6. Painel de Curadoria (Pedido.html) fica vertical */
+    .painel-curadoria { 
+        flex-direction: column; 
+    }
+
+    /* 7. Formulários ocupam mais espaço lateral no celular */
+    .form-container {
+        width: 100%;
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    /* 8. Botão principal da Home ajustado */
+    .btn-acao {
+        width: 100%; /* Botão ocupa toda a largura no celular */
+        box-sizing: border-box;
+    }
+}

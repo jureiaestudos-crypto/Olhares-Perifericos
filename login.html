@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Olhares Periféricos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">OLHARES <span>PERIFÉRICOS</span></div>
+        <a href="index.html" class="btn-header">VOLTAR</a>
+    </header>
+
+    <div class="form-container" style="margin-top: 80px;">
+        <h2 style="text-align: center; border:none;">ACESSO AO SISTEMA</h2>
+        <form onsubmit="realizarLogin(event)">
+            <label>E-mail</label>
+            <input type="text" id="email" placeholder="mano@rap.com">
+            
+            <label>Senha</label>
+            <input type="password" id="senha" placeholder="123">
+            
+            <button type="submit" class="btn-submit">ENTRAR</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

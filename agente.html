@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Agente</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Meu <span>Catálogo</span></div>
+        <nav>
+            <span style="color: #fff;">Olá, <b id="nome-agente">...</b></span>
+            <button onclick="Sessao.logout()" class="btn-destaque">SAIR</button>
+        </nav>
+    </header>
+
+    <main>
+        <div style="margin-bottom: 30px;">
+            <h1>GERENCIAR: <span id="nome-catalogo-display" style="color: var(--wix-red);">...</span></h1>
+        </div>
+
+        <div style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+            
+            <div class="form-container" style="margin: 0; flex: 1; min-width: 300px; border-top: 4px solid var(--wix-red);">
+                <h2 style="font-size: 1.5rem; border:none; margin-bottom:15px;">PUBLICAR NOVA OBRA</h2>
+                <form id="form-obra" onsubmit="publicarObra(event)">
+                    <label>Título da Obra</label>
+                    <input type="text" id="titulo-obra" required placeholder="Ex: Arte Urbana">
+                    
+                    <label>Gênero</label>
+                    <input type="text" id="genero-obra" required placeholder="Ex: Grafite">
+                    
+                    <label>Sinopse / Descrição</label>
+                    <textarea id="sinopse-obra" rows="4" placeholder="Detalhes..."></textarea>
+                    
+                    <button type="submit">PUBLICAR NO CATÁLOGO</button>
+                </form>
+            </div>
+
+            <div style="flex: 1.5; min-width: 320px;">
+                <h2 style="border-bottom: 1px solid #333; padding-bottom: 10px;">Adicionados Recentemente</h2>
+                
+                <div class="grid-container" id="minhas-obras-lateral" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+                    </div>
+            </div>
+        </div>
+
+        <div id="secao-catalogo-completo" class="catalogo-preview" style="display: none; margin-top: 60px;">
+            <h2 style="border: none; color: #fff;">VISUALIZAÇÃO DO CATÁLOGO: <span id="preview-titulo-catalogo" style="color: var(--wix-red);"></span></h2>
+            
+            <div class="grid-container" id="preview-obras-grid">
+                </div>
+        </div>
+    </main>
+
+    <div id="modal-catalogo" class="modal">
+        <div class="modal-content">
+            <h3 style="color: var(--wix-red);">Bem-vindo!</h3>
+            <p style="margin: 15px 0;">Dê um nome ao seu Catálogo para começar:</p>
+            <input type="text" id="input-nome-catalogo" placeholder="Ex: Portfólio 2024">
+            <button onclick="salvarNomeCatalogo()">SALVAR E COMEÇAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>carregarPainelAgente();</script>
+</body>
+</html>

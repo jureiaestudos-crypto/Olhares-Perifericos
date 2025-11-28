@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Olhares Periféricos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Painel <span>Admin</span></div>
+        <nav>
+            <button onclick="Sessao.logout()" class="btn-destaque" style="background:transparent; color:#fff; width:auto;">Sair</button>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Solicitações Pendentes</h1>
+        <p>Verifique as solicitações enviadas pelos Agentes Culturais.</p>
+
+        <div style="background: var(--panel); padding: 20px; border-radius: 8px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Agente Cultural</th>
+                        <th>Descrição da Solicitação</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-solicitacoes">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>carregarPainelAdmin();</script>
+</body>
+</html>

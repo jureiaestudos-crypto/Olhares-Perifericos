@@ -1,6 +1,4 @@
-/* ============================================================
-   1. BANCO DE DADOS SIMULADO (JSON)
-   ============================================================ */
+/* 1. BANCO DE DADOS SIMULADO (JSON) */
 const DB = {
     municipios: [
         { id: 1, nome: "Santos", uf: "SP" },
@@ -29,9 +27,7 @@ const DB = {
     solicitacoes_exposicao: [] // Carrinho do Admin
 };
 
-/* ============================================================
-   2. GERENCIADOR DE SESSÃO (Login/Logout)
-   ============================================================ */
+/* 2. GERENCIADOR DE SESSÃO (Login/Logout) */
 const Sessao = {
     logar: (usuario, tipo) => {
         // Salva os dados no navegador
@@ -49,9 +45,7 @@ const Sessao = {
     getTipo: () => localStorage.getItem('tipo_usuario')
 };
 
-/* ============================================================
-   3. FUNÇÕES DE LOGIN (CORRIGIDA)
-   ============================================================ */
+/* 3. FUNÇÕES DE LOGIN (CORRIGIDA) */
 function realizarLogin(event) {
     // IMPEDE QUE A PÁGINA RECARREGUE AO CLICAR NO BOTÃO
     if(event) event.preventDefault(); 
@@ -91,9 +85,7 @@ function realizarCadastro(event) {
     window.location.href = 'login.html';
 }
 
-/* ============================================================
-   4. FUNÇÕES DO AGENTE (PAINEL)
-   ============================================================ */
+/* 4. FUNÇÕES DO AGENTE (PAINEL) */
 function carregarPainelAgente() {
     const usuario = Sessao.getUsuario();
     const tipo = Sessao.getTipo();
@@ -183,9 +175,7 @@ function renderizarMinhasObras(idAgente) {
     });
 }
 
-/* ============================================================
-   5. FUNÇÕES DE BUSCA E NAVEGAÇÃO (VISITANTE)
-   ============================================================ */
+/* 5. FUNÇÕES DE BUSCA E NAVEGAÇÃO (VISITANTE) */
 function verificarEnter(event) {
     if (event.key === "Enter") realizarBusca();
 }
@@ -289,9 +279,7 @@ function criarCardHTML(obra, tagExtra) {
         </div>`;
 }
 
-/* ============================================================
-   6. FUNÇÕES DO ADMIN (PEDIDO/CURADORIA)
-   ============================================================ */
+/* 6. FUNÇÕES DO ADMIN (PEDIDO/CURADORIA) */
 function carregarPainelAdmin() {
     /*if (Sessao.getTipo() !== 'admin') {
         window.location.href = 'login.html';
